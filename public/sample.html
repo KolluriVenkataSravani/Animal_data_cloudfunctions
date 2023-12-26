@@ -1,0 +1,20 @@
+<html>
+    <body>
+        <h1>${validationResults.message}</h1>
+        <form action="https://xywdkuzb3h.execute-api.us-east-1.amazonaws.com/newstage/upload" method="post">
+            <label for="store-state">State:</label>
+            <input type="text" id="store-state" name="state" required>
+
+            <label for="store-tigers">Tigers:</label>
+            <input type="number" id="store-tigers" name="tigers" required>
+
+            <label for="store-elephants">Elephants:</label>
+            <input type="number" id="store-elephants" name="elephants" required>
+
+            <label for="store-leopards">Leopards:</label>
+            <input type="number" id="store-leopards" name="leopards" required>
+
+            <input type="submit" value="submit" />
+        </form>
+    </body>
+    </html>

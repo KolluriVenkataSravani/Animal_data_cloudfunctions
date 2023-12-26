@@ -1,0 +1,32 @@
+Design a web form to store and retrieve state wise wildlife population information. 
+Consider the following fields for "Store.js" form to get state, Tigers, Elephants, and Leopards details from the officials. 
+Also, design an Update.js form to facilitate updating the wild animal details. 
+You can access the related wildlife date from the following Wikipedia
+
+link: https://en.wikipedia.org/wiki/List of Indian states by wildlife population
+
+store.js(State wise Wild animal Details)
+
+
+State    Tiger    Elephants  Leopards
+
+Submit
+
+update.js (State wise Wild animal Details)
+
+State   Tiger   Elephants   Leopards
+
+Update
+
+(a)Deploy the aforementioned forms using NodeJS server in AWS EC2 Windows instance. 
+These forms use the POST method to communicate details with the server.
+
+(b) Validate the correctness of the fields defined in store.js and update.js using the Node.js server program 
+deployed with AWS Lambda functions. On successful validation send a congratulation message along the same form 
+as a dynamic HTML response. On Failed form validation send appropriate error message along same form as a dynamic 
+HTML response.
+
+
+
+(c) Upon successful validation of the forms, utilize GCP's Cloud SQL to store the provided details in the MySQL database.
+ (The Lambda functions defined in part (b) perform the required operations.)

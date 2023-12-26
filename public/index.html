@@ -1,0 +1,91 @@
+<!-- public/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <title>State-wise Wildlife Population</title>
+</head>
+
+<body>
+  <section id="store-form">
+    <h2>Store Form</h2>
+    <form method="post" action="https://b60bsfb102.execute-api.us-east-1.amazonaws.com/hellow/upload">
+      <label for="store-state">State:</label>
+      <input type="text" id="state" name="state">
+
+      <label for="store-tigers">Tigers:</label>
+      <input type="number" id="tigers" name="tigers">
+
+      <label for="store-elephants">Elephants:</label>
+      <input type="number" id="elephants" name="elephants">
+
+      <label for="store-leopards">Leopards:</label>
+      <input type="number" id="leopards" name="leopards">
+
+      <button type="submit" onclick="submitForm()">Submit</button>
+    </form>
+  </section>
+
+  <section id="update-form">
+    <h2>Update Form</h2>
+    <form method="post">
+      <label for="update-state">State:</label>
+      <input type="text" id="update-state" name="state">
+
+      <label for="update-tigers">Tigers:</label>
+      <input type="number" id="update-tigers" name="tigers">
+
+      <label for="update-elephants">Elephants:</label>
+      <input type="number" id="update-elephants" name="elephants">
+
+      <label for="update-leopards">Leopards:</label>
+      <input type="number" id="update-leopards" name="leopards">
+
+      <button type="submit">Update</button>
+    </form>
+  </section>
+</body>
+
+<script>
+  async function submitForm() {
+    event.preventDefault();
+    const state = document.getElementById('state').value;
+    const tigers = document.getElementById('tigers').value;
+    const elephants = document.getElementById('elephants').value;
+    const leopards = document.getElementById('leopards').value;
+
+
+    const requestBody = {
+      state,
+      tigers,
+      elephants,
+      leopards
+    };
+
+    try {
+      const response = await fetch('https://b60bsfb102.execute-api.us-east-1.amazonaws.com/hellow/upload', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(requestBody),
+      });
+
+      const responseData = await response.json();
+
+      if (response.ok) {
+        alert(responseData.message);
+      } else {
+        alert(responseData.errors);
+      }
+    } catch (error) {
+      console.error('Error submitting form:', error);
+    }
+  }
+</script>
+
+
+</html>
